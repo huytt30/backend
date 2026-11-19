@@ -1,0 +1,6 @@
+# Triển khai thật: mọi thông tin nhạy cảm lấy từ biến môi trường, không ghi vào mã nguồn.
+spring:
+  datasource:
+    url: ${DB_URL}
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}

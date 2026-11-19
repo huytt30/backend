@@ -1,0 +1,14 @@
+# Cấu hình chạy thử trên máy cá nhân: dùng H2 lưu ra file ./data, không cần cài MySQL.
+# KHÔNG dùng các giá trị bí mật dưới đây khi triển khai thật.
+spring:
+  datasource:
+    url: jdbc:h2:file:./data/billiards;MODE=MySQL;DATABASE_TO_LOWER=TRUE;NON_KEYWORDS=VALUE
+    username: sa
+    password:
+
+app:
+  jwt:
+    secret: ${JWT_SECRET:dev-only-secret-change-me-0123456789abcdef}
+  admin:
+    password: ${ADMIN_PASSWORD:Admin@123}
+  seed-sample-data: ${SEED_SAMPLE_DATA:true}

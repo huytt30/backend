@@ -1,0 +1,37 @@
+server:
+  port: ${PORT:8080}
+
+spring:
+  application:
+    name: billiards-api
+  profiles:
+    default: dev
+  autoconfigure:
+    exclude: org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        default_batch_fetch_size: 50
+  servlet:
+    multipart:
+      max-file-size: 5MB
+      max-request-size: 6MB
+
+app:
+  jwt:
+    secret: ${JWT_SECRET:}
+    expiration: ${JWT_EXPIRATION:7d}
+  cors:
+    allowed-origins: ${CORS_ORIGINS:http://localhost:4200}
+  admin:
+    email: ${ADMIN_EMAIL:admin@htbilliards.vn}
+    password: ${ADMIN_PASSWORD:}
+  upload-dir: ${UPLOAD_DIR:uploads}
+  seed-sample-data: ${SEED_SAMPLE_DATA:false}
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
